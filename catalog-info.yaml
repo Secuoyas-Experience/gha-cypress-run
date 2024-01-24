@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gha-cypress-run
+  description: Github action para ejecutar tests de Cypress
+  annotations:
+    github.com/project-slug: Secuoyas-Experience/gha-cypress-run
+    backstage.io/techdocs-ref: dir:.
+  links:
+    - url: https://github.com/Secuoyas-Experience/gha-cypress-run
+      title: Secuoyas Cypress Test Run Github Action
+spec:
+  type: library
+  owner: infrastructure
+  system: Secuoyas-Experience
+  lifecycle: production
