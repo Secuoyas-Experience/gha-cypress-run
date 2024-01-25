@@ -5,7 +5,6 @@ metadata:
   description: Github action para ejecutar tests de Cypress
   annotations:
     github.com/project-slug: Secuoyas-Experience/gha-cypress-run
-    backstage.io/techdocs-ref: dir:.
   links:
     - url: https://github.com/Secuoyas-Experience/gha-cypress-run
       title: Secuoyas Cypress Test Run Github Action
