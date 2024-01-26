@@ -49,11 +49,16 @@ runs:
       id: tests
       run: Cypress_tags="regression" npx cypress run --browser ${{ inputs.browser }} --spec "${{ inputs.spec }}" || true
 
+    - name: Generate Upload Artifact Name
+      shell: bash
+      run: echo "name=cypress-$(echo ${{ input.spec }} | base64)" >> $GITHUB_OUTPUT
+      id: artifact_name
+
     - name: archive-production-artifacts
       uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: cypress
+        name: ${{ steps.artifact_name.outputs.name }}
         path: |
           ./cypress/screenshots
           ./cypress/videos
