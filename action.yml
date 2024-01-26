@@ -51,7 +51,7 @@ runs:
 
     - name: Generate Upload Artifact Name
       shell: bash
-      run: echo "name=cypress-$(echo ${{ input.spec }} | base64)" >> $GITHUB_OUTPUT
+      run: echo "name=cypress-$(echo ${{ inputs.spec }} | base64)" >> $GITHUB_OUTPUT
       id: artifact_name
 
     - name: archive-production-artifacts
