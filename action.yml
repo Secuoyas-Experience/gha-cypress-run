@@ -43,7 +43,8 @@ runs:
 
     - name: Generate Upload Artifact Name
       shell: bash
-      run: echo "name=cypress-$(echo '${{ inputs.spec }}' | base64)" >> $GITHUB_OUTPUT
+      # base64 single-line (no 76-col wrap) and artifact-name-safe (no '/', '+' or '=')
+      run: echo "name=cypress-$(printf '%s' '${{ inputs.spec }}' | base64 | tr -d '\n=' | tr '/+' '_-')" >> $GITHUB_OUTPUT
       id: artifact_name
 
     - name: run-cypress-tests
